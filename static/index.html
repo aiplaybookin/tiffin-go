@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiffin Go - Indian Card Drafting Game</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍛 Tiffin Go 🍛</h1>
+            <p class="subtitle">A delicious card drafting game</p>
+        </header>
+
+        <!-- Home Screen -->
+        <div id="homeScreen" class="screen active">
+            <div class="card">
+                <h2>Welcome to Tiffin Go!</h2>
+                <p>Choose your option:</p>
+                <div class="button-group">
+                    <button id="createGameBtn" class="btn btn-primary">Create New Game</button>
+                    <button id="joinGameBtn" class="btn btn-secondary">Join Existing Game</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Game Screen -->
+        <div id="createGameScreen" class="screen">
+            <div class="card">
+                <h2>Create New Game</h2>
+                <div class="form-group">
+                    <label for="createPlayerName">Your Name:</label>
+                    <input type="text" id="createPlayerName" placeholder="Enter your name" maxlength="20">
+                </div>
+                <div class="button-group">
+                    <button id="confirmCreateBtn" class="btn btn-primary">Create Game</button>
+                    <button id="cancelCreateBtn" class="btn btn-secondary">Back</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Join Game Screen -->
+        <div id="joinGameScreen" class="screen">
+            <div class="card">
+                <h2>Join Game</h2>
+                <div class="form-group">
+                    <label for="joinGameId">Game Code:</label>
+                    <input type="text" id="joinGameId" placeholder="Enter 6-digit code" maxlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="joinPlayerName">Your Name:</label>
+                    <input type="text" id="joinPlayerName" placeholder="Enter your name" maxlength="20">
+                </div>
+                <div class="button-group">
+                    <button id="confirmJoinBtn" class="btn btn-primary">Join Game</button>
+                    <button id="cancelJoinBtn" class="btn btn-secondary">Back</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lobby Screen -->
+        <div id="lobbyScreen" class="screen">
+            <div class="card">
+                <h2>Game Lobby</h2>
+                <div class="game-code">
+                    Game Code: <span id="gameCodeDisplay"></span>
+                    <button id="copyCodeBtn" class="btn-icon" title="Copy code">📋</button>
+                </div>
+                <div class="players-waiting">
+                    <h3>Players (<span id="playerCount">0</span>/5):</h3>
+                    <ul id="playerList"></ul>
+                </div>
+                <div id="hostControls" class="button-group" style="display: none;">
+                    <button id="startGameBtn" class="btn btn-primary">Start Game</button>
+                </div>
+                <div class="button-group">
+                    <button id="leaveLobbyBtn" class="btn btn-secondary">Leave Game</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+            <!-- Game Header -->
+            <div class="game-header">
+                <div class="round-info">
+                    Round <span id="currentRound">1</span>/3 - Turn <span id="currentTurn">1</span>
+                </div>
+                <div class="game-state" id="gameStateInfo">Waiting for players...</div>
+            </div>
+
+            <!-- Other Players -->
+            <div id="otherPlayers" class="other-players"></div>
+
+            <!-- Your Hand -->
+            <div class="your-hand">
+                <h3>Your Hand (<span id="handCount">0</span> cards)</h3>
+                <div id="handCards" class="card-container"></div>
+            </div>
+
+            <!-- Your Played Cards -->
+            <div class="played-cards">
+                <h3>Your Played Cards (Score: <span id="yourScore">0</span>)</h3>
+                <div id="playedCards" class="card-container"></div>
+            </div>
+
+            <!-- Game Controls -->
+            <div class="game-controls">
+                <button id="leaveGameBtn" class="btn btn-secondary">Leave Game</button>
+            </div>
+        </div>
+
+        <!-- Final Scores Screen -->
+        <div id="scoresScreen" class="screen">
+            <div class="card">
+                <h2>🎉 Game Over! 🎉</h2>
+                <div id="finalScores" class="final-scores"></div>
+                <div class="button-group">
+                    <button id="backToHomeBtn" class="btn btn-primary">Back to Home</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Messages -->
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
